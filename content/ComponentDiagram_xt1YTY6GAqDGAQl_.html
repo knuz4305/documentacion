@@ -1,0 +1,771 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Component Diagram - Componentes CIMCORR</title>
+	<META name="Description" content="Diagrama de componentes para propuesta de análisis para nueva plataforma CIMCORR."/>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		Propuesta CIMCORR	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="javascript: vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			Component Diagram - Componentes CIMCORR		</span>
+<a onclick="javascript: showVpLink('Propuesta CIMCORR.vpp://diagram/xt1YTY6GAqDGAQl.', 'Componentes CIMCORR\nPropuesta CIMCORR.vpp://diagram/xt1YTY6GAqDGAQl.', 'Componentes CIMCORR', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<div style="position: relative; padding-bottom: 20px;">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: absolute; top: 0; left: 0; z-index: 20;" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),hideLinkPopup(),hideReferencedBys();">
+			<tr>
+				<td>
+<span class="TableContent">Jump to:</span>					<select id="SelectShape" class="TableContent" onChange="scrollWin('diagram', this.value);hideLinkPopup();showSpotLight('diagram', this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|978.0|473.0|20.0|20.0|Class_YT6cHY6GAqDGAQmk.html|Class_YT6cHY6GAqDGAQmk.html|YT6cHY6GAqDGAQmj" id="optionYT6cHY6GAqDGAQmj">API-BIOMETRICO : Class</option>
+<option value="shape|1089.0|459.0|200.0|48.0|Component_g9IcHY6GAqDGAQmE.html|Component_g9IcHY6GAqDGAQmE.html|g9IcHY6GAqDGAQmD" id="optiong9IcHY6GAqDGAQmD">Almacenamiento Biomético : Component</option>
+<option value="shape|70.0|1252.0|200.0|50.0|Component__8lbTY6GAqDGAROR.html|Component__8lbTY6GAqDGAROR.html|e8lbTY6GAqDGAROQ" id="optione8lbTY6GAqDGAROQ">SICABI : Component</option>
+<option value="shape|70.0|1094.0|200.0|50.0|Component_PjSbTY6GAqDGARNo.html|Component_PjSbTY6GAqDGARNo.html|PjSbTY6GAqDGARNn" id="optionPjSbTY6GAqDGARNn">SIRECI : Component</option>
+<option value="shape|707.0|871.0|20.0|20.0|Class_F4gbTY6GAqDGARM2.html|Class_F4gbTY6GAqDGARM2.html|54gbTY6GAqDGARM1" id="option54gbTY6GAqDGARM1">External API : Class</option>
+<option value="shape|436.0|951.0|20.0|20.0|Class_Up1rTY6GAqDGARLq.html|Class_Up1rTY6GAqDGARLq.html|Up1rTY6GAqDGARLp" id="optionUp1rTY6GAqDGARLp">API : Class</option>
+<option value="shape|70.0|757.0|200.0|50.0|Component_tNMrTY6GAqDGARKZ.html|Component_tNMrTY6GAqDGARKZ.html|tNMrTY6GAqDGARKY" id="optiontNMrTY6GAqDGARKY">Reportes : Component</option>
+<option value="shape|618.0|936.0|198.0|50.0|Component_KXdLTY6GAqDGARJq.html|Component_KXdLTY6GAqDGARJq.html|KXdLTY6GAqDGARJp" id="optionKXdLTY6GAqDGARJp">Bus de Servicios : Component</option>
+<option value="shape|70.0|936.0|200.0|50.0|Component_0wkVTY6GAqDGARJC.html|Component_0wkVTY6GAqDGARJC.html|0wkVTY6GAqDGARJB" id="option0wkVTY6GAqDGARJB">Lector de DPI : Component</option>
+<option value="shape|978.0|276.0|20.0|20.0|Class_EgklTY6GAqDGARGB.html|Class_EgklTY6GAqDGARGB.html|EgklTY6GAqDGARGA" id="optionEgklTY6GAqDGARGA">JDBC : Class</option>
+<option value="shape|978.0|276.0|20.0|20.0|Class_94PFTY6GAqDGARFD.html|Class_94PFTY6GAqDGARFD.html|94PFTY6GAqDGARFC" id="option94PFTY6GAqDGARFC">Unnamed Class : Class</option>
+<option value="shape|1089.0|257.0|200.0|50.0|Component_uwLFTY6GAqDGAREz.html|Component_uwLFTY6GAqDGAREz.html|uwLFTY6GAqDGAREy" id="optionuwLFTY6GAqDGAREy">SGBD : Component</option>
+<option value="shape|70.0|657.0|200.0|50.0|Component_a9apTY6GAqDGAQ92.html|Component_a9apTY6GAqDGAQ92.html|q9apTY6GAqDGAQ91" id="optionq9apTY6GAqDGAQ91">Inventario de Tarjetas : Component</option>
+<option value="shape|70.0|557.0|200.0|50.0|Component__dyRTY6GAqDGAQ8X.html|Component__dyRTY6GAqDGAQ8X.html|edyRTY6GAqDGAQ8W" id="optionedyRTY6GAqDGAQ8W">Correspondencia : Component</option>
+<option value="shape|70.0|459.0|200.0|48.0|Component_AtGBTY6GAqDGAQ7N.html|Component_AtGBTY6GAqDGAQ7N.html|AtGBTY6GAqDGAQ7M" id="optionAtGBTY6GAqDGAQ7M">Control de Calidad : Component</option>
+<option value="shape|70.0|357.0|200.0|52.0|Component_kppCTY6GAqDGAQs1.html|Component_kppCTY6GAqDGAQs1.html|kppCTY6GAqDGAQs0" id="optionkppCTY6GAqDGAQs0">Generador de Manifiestos : Component</option>
+<option value="shape|70.0|257.0|200.0|52.0|Component_0tk8TY6GAqDGAQqm.html|Component_0tk8TY6GAqDGAQqm.html|Utk8TY6GAqDGAQql" id="optionUtk8TY6GAqDGAQql">Armador de Lotes : Component</option>
+<option value="shape|436.0|274.0|20.0|20.0|Class_CphMTY6GAqDGAQoN.html|Class_CphMTY6GAqDGAQoN.html|8phMTY6GAqDGAQoM" id="option8phMTY6GAqDGAQoM">API : Class</option>
+<option value="shape|70.0|158.0|200.0|49.0|Component_uQsETY6GAqDGAQmn.html|Component_uQsETY6GAqDGAQmn.html|uQsETY6GAqDGAQmm" id="optionuQsETY6GAqDGAQmm">Ajustador de Fotografía : Component</option>
+<option value="shape|618.0|257.0|198.0|52.0|Component_B6fYTY6GAqDGAQmX.html|Component_B6fYTY6GAqDGAQmX.html|O6fYTY6GAqDGAQmW" id="optionO6fYTY6GAqDGAQmW">Controlador de Flujos : Component</option>
+<option value="shape|2.0|108.0|900.0|720.0|Package_GeXYTY6GAqDGAQmQ.html|Package_GeXYTY6GAqDGAQmQ.html|aeXYTY6GAqDGAQmP" id="optionaeXYTY6GAqDGAQmP">CIMCORR : Package</option>
+</select>				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: relative; top: 24;">
+			<tr>
+				<td>
+					<img id="diagram" src="../images/Componentes_CIMCORR.png" usemap="#diagram_map" class="Image" width="1293" height="1306"/>
+					<map name="diagram_map">
+<area imageId="diagram" coords="456.0, 277.0, 456.0, 291.0, 618.0, 291.0, 618.0, 277.0" coords2="456.0, 277.0, 456.0, 291.0, 618.0, 291.0, 618.0, 277.0" shape="poly" alt=":Realization" id="areadiagram_map_J5hMTY6GAqDGAQoW_default" href="Realization_K5hMTY6GAqDGAQoV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="361.0, 172.0, 361.0, 175.0, 270.0, 175.0, 270.0, 189.0, 361.0, 189.0, 361.0, 277.0, 358.0, 277.0, 358.0, 291.0, 361.0, 291.0, 361.0, 294.0, 375.0, 294.0, 375.0, 291.0, 436.0, 291.0, 436.0, 277.0, 375.0, 277.0, 375.0, 189.0, 378.0, 189.0, 378.0, 175.0, 375.0, 175.0, 375.0, 172.0" coords2="361.0, 172.0, 361.0, 175.0, 270.0, 175.0, 270.0, 189.0, 361.0, 189.0, 361.0, 277.0, 358.0, 277.0, 358.0, 291.0, 361.0, 291.0, 361.0, 294.0, 375.0, 294.0, 375.0, 291.0, 436.0, 291.0, 436.0, 277.0, 375.0, 277.0, 375.0, 189.0, 378.0, 189.0, 378.0, 175.0, 375.0, 175.0, 375.0, 172.0" shape="poly" alt=":Usage" id="areadiagram_map_mPBZTY6GAqDGARBi_default" href="Usage_eHBZTY6GAqDGARBh.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="270.0, 277.0, 270.0, 291.0, 436.0, 291.0, 436.0, 277.0" coords2="270.0, 277.0, 270.0, 291.0, 436.0, 291.0, 436.0, 277.0" shape="poly" alt=":Usage" id="areadiagram_map__EVZTY6GAqDGARB5_default" href="Usage_BYVZTY6GAqDGARB4.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="361.0, 274.0, 361.0, 277.0, 358.0, 277.0, 358.0, 291.0, 361.0, 291.0, 361.0, 376.0, 270.0, 376.0, 270.0, 390.0, 361.0, 390.0, 361.0, 393.0, 375.0, 393.0, 375.0, 390.0, 378.0, 390.0, 378.0, 376.0, 375.0, 376.0, 375.0, 291.0, 436.0, 291.0, 436.0, 277.0, 375.0, 277.0, 375.0, 274.0" coords2="361.0, 274.0, 361.0, 277.0, 358.0, 277.0, 358.0, 291.0, 361.0, 291.0, 361.0, 376.0, 270.0, 376.0, 270.0, 390.0, 361.0, 390.0, 361.0, 393.0, 375.0, 393.0, 375.0, 390.0, 378.0, 390.0, 378.0, 376.0, 375.0, 376.0, 375.0, 291.0, 436.0, 291.0, 436.0, 277.0, 375.0, 277.0, 375.0, 274.0" shape="poly" alt=":Usage" id="areadiagram_map_MvjZTY6GAqDGARCw_default" href="Usage_XXjZTY6GAqDGARCv.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="361.0, 274.0, 361.0, 277.0, 358.0, 277.0, 358.0, 291.0, 361.0, 291.0, 361.0, 476.0, 270.0, 476.0, 270.0, 490.0, 361.0, 490.0, 361.0, 493.0, 375.0, 493.0, 375.0, 490.0, 378.0, 490.0, 378.0, 476.0, 375.0, 476.0, 375.0, 291.0, 436.0, 291.0, 436.0, 277.0, 375.0, 277.0, 375.0, 274.0" coords2="361.0, 274.0, 361.0, 277.0, 358.0, 277.0, 358.0, 291.0, 361.0, 291.0, 361.0, 476.0, 270.0, 476.0, 270.0, 490.0, 361.0, 490.0, 361.0, 493.0, 375.0, 493.0, 375.0, 490.0, 378.0, 490.0, 378.0, 476.0, 375.0, 476.0, 375.0, 291.0, 436.0, 291.0, 436.0, 277.0, 375.0, 277.0, 375.0, 274.0" shape="poly" alt=":Usage" id="areadiagram_map_q8PZTY6GAqDGARDI_default" href="Usage_rMPZTY6GAqDGARDH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="361.0, 274.0, 361.0, 277.0, 358.0, 277.0, 358.0, 291.0, 361.0, 291.0, 361.0, 575.0, 270.0, 575.0, 270.0, 589.0, 361.0, 589.0, 361.0, 592.0, 375.0, 592.0, 375.0, 589.0, 378.0, 589.0, 378.0, 575.0, 375.0, 575.0, 375.0, 291.0, 436.0, 291.0, 436.0, 277.0, 375.0, 277.0, 375.0, 274.0" coords2="361.0, 274.0, 361.0, 277.0, 358.0, 277.0, 358.0, 291.0, 361.0, 291.0, 361.0, 575.0, 270.0, 575.0, 270.0, 589.0, 361.0, 589.0, 361.0, 592.0, 375.0, 592.0, 375.0, 589.0, 378.0, 589.0, 378.0, 575.0, 375.0, 575.0, 375.0, 291.0, 436.0, 291.0, 436.0, 277.0, 375.0, 277.0, 375.0, 274.0" shape="poly" alt=":Usage" id="areadiagram_map_Qvg5TY6GAqDGARDp_default" href="Usage_0Xg5TY6GAqDGARDo.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="361.0, 274.0, 361.0, 277.0, 358.0, 277.0, 358.0, 291.0, 361.0, 291.0, 361.0, 675.0, 270.0, 675.0, 270.0, 689.0, 361.0, 689.0, 361.0, 692.0, 375.0, 692.0, 375.0, 689.0, 378.0, 689.0, 378.0, 675.0, 375.0, 675.0, 375.0, 291.0, 436.0, 291.0, 436.0, 277.0, 375.0, 277.0, 375.0, 274.0" coords2="361.0, 274.0, 361.0, 277.0, 358.0, 277.0, 358.0, 291.0, 361.0, 291.0, 361.0, 675.0, 270.0, 675.0, 270.0, 689.0, 361.0, 689.0, 361.0, 692.0, 375.0, 692.0, 375.0, 689.0, 378.0, 689.0, 378.0, 675.0, 375.0, 675.0, 375.0, 291.0, 436.0, 291.0, 436.0, 277.0, 375.0, 277.0, 375.0, 274.0" shape="poly" alt=":Usage" id="areadiagram_map_fBG5TY6GAqDGAREO_default" href="Usage_JeG5TY6GAqDGAREN.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="816.0, 279.0, 816.0, 293.0, 978.0, 293.0, 978.0, 279.0" coords2="816.0, 279.0, 816.0, 293.0, 978.0, 293.0, 978.0, 279.0" shape="poly" alt=":Usage" id="areadiagram_map_z_AlTY6GAqDGARFV_default" href="Usage_yvAlTY6GAqDGARFU.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="998.0, 279.0, 998.0, 293.0, 1089.0, 293.0, 1089.0, 279.0" coords2="998.0, 279.0, 998.0, 293.0, 1089.0, 293.0, 1089.0, 279.0" shape="poly" alt=":Realization" id="areadiagram_map_oYklTY6GAqDGARGI_default" href="Realization_rwklTY6GAqDGARGH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="361.0, 274.0, 361.0, 277.0, 358.0, 277.0, 358.0, 291.0, 361.0, 291.0, 361.0, 775.0, 270.0, 775.0, 270.0, 789.0, 361.0, 789.0, 361.0, 792.0, 375.0, 792.0, 375.0, 789.0, 378.0, 789.0, 378.0, 775.0, 375.0, 775.0, 375.0, 291.0, 436.0, 291.0, 436.0, 277.0, 375.0, 277.0, 375.0, 274.0" coords2="361.0, 274.0, 361.0, 277.0, 358.0, 277.0, 358.0, 291.0, 361.0, 291.0, 361.0, 775.0, 270.0, 775.0, 270.0, 789.0, 361.0, 789.0, 361.0, 792.0, 375.0, 792.0, 375.0, 789.0, 378.0, 789.0, 378.0, 775.0, 375.0, 775.0, 375.0, 291.0, 436.0, 291.0, 436.0, 277.0, 375.0, 277.0, 375.0, 274.0" shape="poly" alt=":Usage" id="areadiagram_map_4omrTY6GAqDGARLJ_default" href="Usage_9QmrTY6GAqDGARLI.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="456.0, 954.0, 456.0, 968.0, 618.0, 968.0, 618.0, 954.0" coords2="456.0, 954.0, 456.0, 968.0, 618.0, 968.0, 618.0, 954.0" shape="poly" alt=":Realization" id="areadiagram_map_311rTY6GAqDGARLy_default" href="Realization_pl1rTY6GAqDGARLx.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="270.0, 954.0, 270.0, 968.0, 436.0, 968.0, 436.0, 954.0" coords2="270.0, 954.0, 270.0, 968.0, 436.0, 968.0, 436.0, 954.0" shape="poly" alt=":Usage" id="areadiagram_map_32TrTY6GAqDGARMS_default" href="Usage_emTrTY6GAqDGARMR.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="710.0, 309.0, 710.0, 871.0, 724.0, 871.0, 724.0, 309.0" coords2="710.0, 309.0, 710.0, 871.0, 724.0, 871.0, 724.0, 309.0" shape="poly" alt=":Realization" id="areadiagram_map_gcgbTY6GAqDGARM._default" href="Realization_G0gbTY6GAqDGARM9.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="710.0, 891.0, 710.0, 936.0, 724.0, 936.0, 724.0, 891.0" coords2="710.0, 891.0, 710.0, 936.0, 724.0, 936.0, 724.0, 891.0" shape="poly" alt=":Usage" id="areadiagram_map_lT4bTY6GAqDGARNW_default" href="Usage_a94bTY6GAqDGARNV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="361.0, 951.0, 361.0, 954.0, 358.0, 954.0, 358.0, 968.0, 361.0, 968.0, 361.0, 1112.0, 270.0, 1112.0, 270.0, 1126.0, 361.0, 1126.0, 361.0, 1129.0, 375.0, 1129.0, 375.0, 1126.0, 378.0, 1126.0, 378.0, 1112.0, 375.0, 1112.0, 375.0, 968.0, 436.0, 968.0, 436.0, 954.0, 375.0, 954.0, 375.0, 951.0" coords2="361.0, 951.0, 361.0, 954.0, 358.0, 954.0, 358.0, 968.0, 361.0, 968.0, 361.0, 1112.0, 270.0, 1112.0, 270.0, 1126.0, 361.0, 1126.0, 361.0, 1129.0, 375.0, 1129.0, 375.0, 1126.0, 378.0, 1126.0, 378.0, 1112.0, 375.0, 1112.0, 375.0, 968.0, 436.0, 968.0, 436.0, 954.0, 375.0, 954.0, 375.0, 951.0" shape="poly" alt=":Usage" id="areadiagram_map_yKubTY6GAqDGARN6_default" href="Usage_OiubTY6GAqDGARN5.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="361.0, 951.0, 361.0, 954.0, 358.0, 954.0, 358.0, 968.0, 361.0, 968.0, 361.0, 1270.0, 270.0, 1270.0, 270.0, 1284.0, 361.0, 1284.0, 361.0, 1287.0, 375.0, 1287.0, 375.0, 1284.0, 378.0, 1284.0, 378.0, 1270.0, 375.0, 1270.0, 375.0, 968.0, 436.0, 968.0, 436.0, 954.0, 375.0, 954.0, 375.0, 951.0" coords2="361.0, 951.0, 361.0, 954.0, 358.0, 954.0, 358.0, 968.0, 361.0, 968.0, 361.0, 1270.0, 270.0, 1270.0, 270.0, 1284.0, 361.0, 1284.0, 361.0, 1287.0, 375.0, 1287.0, 375.0, 1284.0, 378.0, 1284.0, 378.0, 1270.0, 375.0, 1270.0, 375.0, 968.0, 436.0, 968.0, 436.0, 954.0, 375.0, 954.0, 375.0, 951.0" shape="poly" alt=":Usage" id="areadiagram_map_SgDbTY6GAqDGAROd_default" href="Usage_Zf9bTY6GAqDGAROc.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="998.0, 476.0, 998.0, 490.0, 1089.0, 490.0, 1089.0, 476.0" coords2="998.0, 476.0, 998.0, 490.0, 1089.0, 490.0, 1089.0, 476.0" shape="poly" alt=":Realization" id="areadiagram_map_bH6cHY6GAqDGAQms_default" href="Realization_Hr6cHY6GAqDGAQmr.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="710.0, 309.0, 710.0, 476.0, 707.0, 476.0, 707.0, 490.0, 710.0, 490.0, 710.0, 493.0, 724.0, 493.0, 724.0, 490.0, 978.0, 490.0, 978.0, 476.0, 724.0, 476.0, 724.0, 309.0" coords2="710.0, 309.0, 710.0, 476.0, 707.0, 476.0, 707.0, 490.0, 710.0, 490.0, 710.0, 493.0, 724.0, 493.0, 724.0, 490.0, 978.0, 490.0, 978.0, 476.0, 724.0, 476.0, 724.0, 309.0" shape="poly" alt=":Usage" id="areadiagram_map_e7ecHY6GAqDGAQnK_default" href="Usage_erecHY6GAqDGAQnJ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="978, 473, 998, 493" coords2="978, 473, 998, 493" shape="rect" alt="API-BIOMETRICO:Class" id="areadiagram_map_YT6cHY6GAqDGAQmj_default" href="Class_YT6cHY6GAqDGAQmk.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1089, 459, 1289, 507" coords2="1089, 459, 1289, 507" shape="rect" alt="Almacenamiento Biomético:Component" id="areadiagram_map_g9IcHY6GAqDGAQmD_default" href="Component_g9IcHY6GAqDGAQmE.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Sistema de Captaci&amp;#243;n Biom&amp;#233;trica y Biogr&amp;#225;fica.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="70, 1252, 270, 1302" coords2="70, 1252, 270, 1302" shape="rect" alt="SICABI:Component" id="areadiagram_map_e8lbTY6GAqDGAROQ_default" href="Component__8lbTY6GAqDGAROR.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Sistema de Registro Civil
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="70, 1094, 270, 1144" coords2="70, 1094, 270, 1144" shape="rect" alt="SIRECI:Component" id="areadiagram_map_PjSbTY6GAqDGARNn_default" href="Component_PjSbTY6GAqDGARNo.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="707, 871, 727, 891" coords2="707, 871, 727, 891" shape="rect" alt="External API:Class" id="areadiagram_map_54gbTY6GAqDGARM1_default" href="Class_F4gbTY6GAqDGARM2.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="436, 951, 456, 971" coords2="436, 951, 456, 971" shape="rect" alt="API:Class" id="areadiagram_map_Up1rTY6GAqDGARLp_default" href="Class_Up1rTY6GAqDGARLq.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="70, 757, 270, 807" coords2="70, 757, 270, 807" shape="rect" alt="Reportes:Component" id="areadiagram_map_tNMrTY6GAqDGARKY_default" href="Component_tNMrTY6GAqDGARKZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Controllador de servicios relacionados a las aplicaci&amp;#243;nes internas del 
+      Registro Nacional de las Personas.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="618, 936, 816, 986" coords2="618, 936, 816, 986" shape="rect" alt="Bus de Servicios:Component" id="areadiagram_map_KXdLTY6GAqDGARJp_default" href="Component_KXdLTY6GAqDGARJq.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Aplicaci&amp;#243;n que realiza la lectura de informaci&amp;#243;n almacenada en el chip 
+      de la tarjeta personalizada.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="70, 936, 270, 986" coords2="70, 936, 270, 986" shape="rect" alt="Lector de DPI:Component" id="areadiagram_map_0wkVTY6GAqDGARJB_default" href="Component_0wkVTY6GAqDGARJC.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="978, 276, 998, 296" coords2="978, 276, 998, 296" shape="rect" alt=":Class" id="areadiagram_map_94PFTY6GAqDGARFC_default" href="Class_94PFTY6GAqDGARFD.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="978, 276, 998, 296" coords2="978, 276, 998, 296" shape="rect" alt="JDBC:Class" id="areadiagram_map_EgklTY6GAqDGARGA_default" href="Class_EgklTY6GAqDGARGB.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Sistema de almacenamiento principal.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="1089, 257, 1289, 307" coords2="1089, 257, 1289, 307" shape="rect" alt="SGBD:Component" id="areadiagram_map_uwLFTY6GAqDGAREy_default" href="Component_uwLFTY6GAqDGAREz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Aplicaci&amp;#243;n para el control de ingreso y egreso de tarjetas 
+      pre-personalizadas y personalizadas.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="70, 657, 270, 707" coords2="70, 657, 270, 707" shape="rect" alt="Inventario de Tarjetas:Component" id="areadiagram_map_q9apTY6GAqDGAQ91_default" href="Component_a9apTY6GAqDGAQ92.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Aplicaci&amp;#243;n para el control de la distribuci&amp;#243;n de las tarjetas producidas.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="70, 557, 270, 607" coords2="70, 557, 270, 607" shape="rect" alt="Correspondencia:Component" id="areadiagram_map_edyRTY6GAqDGAQ8W_default" href="Component__dyRTY6GAqDGAQ8X.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Aplicaci&amp;#243;n para el registro de la inspecci&amp;#243;n realizada a las tarjetas 
+      producidas.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="70, 459, 270, 507" coords2="70, 459, 270, 507" shape="rect" alt="Control de Calidad:Component" id="areadiagram_map_AtGBTY6GAqDGAQ7M_default" href="Component_AtGBTY6GAqDGAQ7N.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Aplicaci&amp;#243;n para la generaci&amp;#243;n de documento de transporte.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="70, 357, 270, 409" coords2="70, 357, 270, 409" shape="rect" alt="Generador de Manifiestos:Component" id="areadiagram_map_kppCTY6GAqDGAQs0_default" href="Component_kppCTY6GAqDGAQs1.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Aplicaci&amp;#243;n para el armado de lotes de impresi&amp;#243;n con solicitudes listas 
+      para personalizaci&amp;#243;n.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="70, 257, 270, 309" coords2="70, 257, 270, 309" shape="rect" alt="Armador de Lotes:Component" id="areadiagram_map_Utk8TY6GAqDGAQql_default" href="Component_0tk8TY6GAqDGAQqm.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="436, 274, 456, 294" coords2="436, 274, 456, 294" shape="rect" alt="API:Class" id="areadiagram_map_8phMTY6GAqDGAQoM_default" href="Class_CphMTY6GAqDGAQoN.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Aplicaci&amp;#243;n para ajuste de fotograf&amp;#237;a de solicitud de emisi&amp;#243;n de DPI.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="70, 158, 270, 207" coords2="70, 158, 270, 207" shape="rect" alt="Ajustador de Fotografía:Component" id="areadiagram_map_uQsETY6GAqDGAQmm_default" href="Component_uQsETY6GAqDGAQmn.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Controlador de flujos de procesos de personalizaci&amp;#243;n de solicitudes de 
+      DPI.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="618, 257, 816, 309" coords2="618, 257, 816, 309" shape="rect" alt="Controlador de Flujos:Component" id="areadiagram_map_O6fYTY6GAqDGAQmW_default" href="Component_B6fYTY6GAqDGAQmX.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Sistema de control para el Centro de Impresi&amp;#243;n, Control de Calidad y 
+      Correspondencia.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="2, 108, 902, 828" coords2="2, 108, 902, 828" shape="rect" alt="CIMCORR:Package" id="areadiagram_map_aeXYTY6GAqDGAQmP_default" href="Package_GeXYTY6GAqDGAQmQ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+</map>
+				</td>
+			</tr>
+		</table>
+		<p>
+		</p>
+	</div>
+	<p>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0">
+			<tr>
+				<td>
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Diagrama de componentes para propuesta de an&#225;lisis para nueva plataforma 
+      CIMCORR.
+    </p>
+  </body></span>				</td>
+			</tr>
+		</table>
+	</p>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_YT6cHY6GAqDGAQmk.html" class="ItemLink">API-BIOMETRICO : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component_g9IcHY6GAqDGAQmE.html" class="ItemLink">Almacenamiento Biomético : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component__8lbTY6GAqDGAROR.html" class="ItemLink">SICABI : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Sistema de Captaci&#243;n Biom&#233;trica y Biogr&#225;fica.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component_PjSbTY6GAqDGARNo.html" class="ItemLink">SIRECI : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Sistema de Registro Civil
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_F4gbTY6GAqDGARM2.html" class="ItemLink">External API : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_Up1rTY6GAqDGARLq.html" class="ItemLink">API : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component_tNMrTY6GAqDGARKZ.html" class="ItemLink">Reportes : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component_KXdLTY6GAqDGARJq.html" class="ItemLink">Bus de Servicios : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Controllador de servicios relacionados a las aplicaci&#243;nes internas del 
+      Registro Nacional de las Personas.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component_0wkVTY6GAqDGARJC.html" class="ItemLink">Lector de DPI : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Aplicaci&#243;n que realiza la lectura de informaci&#243;n almacenada en el chip 
+      de la tarjeta personalizada.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_EgklTY6GAqDGARGB.html" class="ItemLink">JDBC : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_94PFTY6GAqDGARFD.html" class="ItemLink">N/A : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component_uwLFTY6GAqDGAREz.html" class="ItemLink">SGBD : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Sistema de almacenamiento principal.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component_a9apTY6GAqDGAQ92.html" class="ItemLink">Inventario de Tarjetas : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Aplicaci&#243;n para el control de ingreso y egreso de tarjetas 
+      pre-personalizadas y personalizadas.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component__dyRTY6GAqDGAQ8X.html" class="ItemLink">Correspondencia : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Aplicaci&#243;n para el control de la distribuci&#243;n de las tarjetas producidas.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component_AtGBTY6GAqDGAQ7N.html" class="ItemLink">Control de Calidad : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Aplicaci&#243;n para el registro de la inspecci&#243;n realizada a las tarjetas 
+      producidas.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component_kppCTY6GAqDGAQs1.html" class="ItemLink">Generador de Manifiestos : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Aplicaci&#243;n para la generaci&#243;n de documento de transporte.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component_0tk8TY6GAqDGAQqm.html" class="ItemLink">Armador de Lotes : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Aplicaci&#243;n para el armado de lotes de impresi&#243;n con solicitudes listas 
+      para personalizaci&#243;n.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Class.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Class.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Class_CphMTY6GAqDGAQoN.html" class="ItemLink">API : Class</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component_uQsETY6GAqDGAQmn.html" class="ItemLink">Ajustador de Fotografía : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Aplicaci&#243;n para ajuste de fotograf&#237;a de solicitud de emisi&#243;n de DPI.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Component_B6fYTY6GAqDGAQmX.html" class="ItemLink">Controlador de Flujos : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Controlador de flujos de procesos de personalizaci&#243;n de solicitudes de 
+      DPI.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Package.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Package.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Package_GeXYTY6GAqDGAQmQ.html" class="ItemLink">CIMCORR : Package</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Sistema de control para el Centro de Impresi&#243;n, Control de Calidad y 
+      Correspondencia.
+    </p>
+  </body></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		Propuesta CIMCORR	</div>
+</body>
+</html>
